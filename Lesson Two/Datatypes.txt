@@ -1,0 +1,14 @@
+1. 7.8 ----------- Number
+2. "888" --------- String
+3. 67 < -11 ------ Boolean
+4. NaN ----------- Boolean
+5. 56000 * 34 ---- Number
+
+
+Right or Wrong Variables Names?
+1. year ---------- correct
+2. *64 ----------- wrong
+3. _%earn -------- correct
+4. value --------- correct
+5. salary -------- correct
+6. do ------------ wrong 
