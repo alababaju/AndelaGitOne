@@ -41,10 +41,10 @@ Array.prototype.search = function (numToFind)
 	//whatever you do to theArray would be done to 'this' by the way.
 	//but it wouldn't change the function that called it. so 'this' is probably
 	// a local copy of the caller function
-	myBinarySearch(theArray, numToFind);
+	var ansArray = myBinarySearch(theArray, numToFind);
 
-	myObject.count = myBinarySearch[0];
-	myObject.index = myBinarySearch[1];
+	myObject.count = ansArray[0];
+	myObject.index = ansArray[1];
 	myObject.length = this.length;
 
 
@@ -53,13 +53,14 @@ Array.prototype.search = function (numToFind)
 
 var myBinarySearch = function(array1, lucozadeBoost)
 {
-	var arrayIndexMax = array1.length-1;
-	var midNumIndex = floor(arrayIndexMax/2);
+	var newMaxIndex = array1.length-1;
+	var newMinIndex = 0;
+	var midNumIndex = Math.floor( (array1.length-1)  / 2 );
 	var midNum = array1[midNumIndex];
 	var myIndex = 0;
 	var myCount = 0;
 
-	for(1===1)// the loop will exit with the break statement
+	while(1)// the loop will exit by the break statement
 	{
 		if(midNum === lucozadeBoost)
 		{
@@ -69,20 +70,25 @@ var myBinarySearch = function(array1, lucozadeBoost)
 		}
 		else if(midNum > lucozadeBoost)//guess lower
 		{
-			midNumIndex = floor(midNum/2);
+			newMaxIndex = midNumIndex;
+			midNumIndex = Math.floor((newMinIndex+midNumIndex) / 2);
 			midNum = array1[midNumIndex];
 			myCount++;
 
 		}
 		else if (midNum < lucozadeBoost)//guess higher
 		{
-			midNum = (ceil(arrayIndexMax - midNumIndex))
+			newMinIndex = midNumIndex;
+			midNumIndex = Math.ceil((newMaxIndex + midNumIndex) / 2);
+			midNum = array1[midNumIndex];
 			myCount++;
-			//myBinarySearch(array1, lucozadeBoost);
 		}	
 
 	}
 	var toRetArray = [myCount, myIndex];
 
+	return toRetArray;
+};
 
-}
+man = [];
+man.toTwenty().search(5);
